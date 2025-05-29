@@ -1,0 +1,69 @@
+﻿@page "/"
+
+@using BlazorApp2.Components.Layout
+@layout EmptyLayout
+<PageTitle>Log In</PageTitle>
+
+<div class="row vh-100 vw-100 overflow-hidden ">
+        <!-- Left Column -->
+        <div class="col-md-8 d-flex bg-primary " style="justify-content:center; " >
+            <!--bg image-->
+            <img src="/Images/bg.png" alt="background-image" class="vh-100">
+        </div>
+      
+        <!-- Right Column -->
+        <div class="col-md-4 d-flex align-items-center flex-column" style="padding:40px;">
+            <!--heading title-->
+            <h1 class="fw-bolder text-primary" style="padding:50px;"><i>eOffice</i></h1>
+                <h5 class="mb-3 text-center "><b>Login to your account</b></h5>
+                <!--form creating-->
+                <EditForm Model="@loginModel">
+                    <!--email field-->
+                    <div class="mb-3">
+                        <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <InputText type="email" id="email" class="form-control"  @bind-Value="loginModel.Email" placeholder="demo@office.com" />
+                    </div>
+                    </div>
+
+                    <!--Paasword field-->
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Password</label>
+                        <a href="#" class="float-end text-primary text-decoration-none">Forgot?</a>
+                        <div class="input-group">
+                            <InputText id="pwd" type="password" class="form-control" @bind-Value="loginModel.Password" placeholder="Enter your password" />
+                            <!--eye-icon-->
+                            <span class="input-group-text">
+                                <i class="bi bi-eye" style="cursor: pointer;"></i>        
+                            </span>
+                        </div>
+                    </div>
+                    
+
+                    <!-- login button-->
+
+                    <div class="mb-3">
+                        <button class="btn  text-white bg-primary w-100">Login now</button>
+                    </div>
+                </EditForm>
+           
+        </div>
+   </div>
+   
+  
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+/*
+    private void HandleLogin()
+    {
+        // Handle login logic here
+    }
+*/
+    // class
+    public class LoginModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+}
